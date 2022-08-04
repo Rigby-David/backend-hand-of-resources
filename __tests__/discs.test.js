@@ -8,7 +8,7 @@ describe('backend-express-template routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('#GET /discs should return a disc with id, name, type, speed, glide', async () => {
+  it('#GET /discs should return discs with id, name, type, speed, glide', async () => {
     const res = await request(app).get('/discs');
     expect(res.body.length).toBe(6);
     expect(res.body[0]).toEqual({
