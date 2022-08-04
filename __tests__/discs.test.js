@@ -29,6 +29,19 @@ describe('backend-express-template routes', () => {
       glide: 5,
     });
   });
+  it('#POST /discs should add a new donut object', async () => {
+    const newDisc = {
+      name: 'Panther',
+      type: 'Mid',
+      speed: 5,
+      glide: 4,
+    };
+    const res = await request(app).post('/discs').send(newDisc);
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      ...newDisc
+    });
+  });
   afterAll(() => {
     pool.end();
   });
