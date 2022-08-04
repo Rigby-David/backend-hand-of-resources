@@ -42,6 +42,12 @@ describe('backend-express-template routes', () => {
       ...newDisc
     });
   });
+  it('#PUT /discs/:id should update a discs info', async () => {
+    const res = await request(app).put('/discs/1').send({
+      name: 'Flight',
+    });
+    expect(res.body.name).toBe('Flight');
+  });
   afterAll(() => {
     pool.end();
   });
