@@ -48,6 +48,14 @@ describe('backend-express-template routes', () => {
     });
     expect(res.body.name).toBe('Flight');
   });
+  it('#DELETE /discs/:id should delete a disc', async () => {
+    const resp = await request(app).get('/discs');
+    expect(resp.body.length).toBe(6);
+    const res = await request(app).delete('/discs/1');
+    expect(res.status).toBe(200);
+    const response = await request(app).get('/discs');
+    expect(response.body.length).toBe(5);
+  });
   afterAll(() => {
     pool.end();
   });
