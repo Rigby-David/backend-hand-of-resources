@@ -9,7 +9,7 @@ CREATE TABLE discs (
     type VARCHAR,
     speed INT,
     glide INT
-)
+);
 
 INSERT INTO discs (
     name,
