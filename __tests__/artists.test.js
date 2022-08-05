@@ -47,6 +47,14 @@ describe('backend-express-template routes', () => {
     });
     expect(res.body.band).toBe('Organic Sunrise');
   });
+  it('#DELETE /artists/:id should delete a artist', async () => {
+    const resp = await request(app).get('/artists');
+    expect(resp.body.length).toBe(3);
+    const res = await request(app).delete('/artists/1');
+    expect(res.status).toBe(200);
+    const response = await request(app).get('/artists');
+    expect(response.body.length).toBe(2);
+  });
   afterAll(() => {
     pool.end();
   });
