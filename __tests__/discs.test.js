@@ -19,7 +19,7 @@ describe('backend-express-template routes', () => {
       glide: expect.any(Number),
     });
   });
-  it('#GET /discs:id should return a specific disc', async () => {
+  it('#GET /discs/:id should return a specific disc', async () => {
     const res = await request(app).get('/discs/1');
     expect(res.body).toEqual({
       id: '1',
