@@ -18,6 +18,16 @@ describe('backend-express-template routes', () => {
       bass: expect.any(String),
     });
   });
+  it('#GET /artists/:id should return a specific artist', async () => {
+    const res = await request(app).get('/artists/1');
+    expect(res.body).toEqual({
+      id: '1',
+      band: 'Rush',
+      guitar: 'Alex Lifeson',
+      drums: 'Neil Peart',
+      bass: 'Geddy Lee',
+    });
+  });
   afterAll(() => {
     pool.end();
   });
