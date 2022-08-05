@@ -20,6 +20,7 @@ describe('backend-express-template routes', () => {
   });
   it('#GET /courses/:id should return first row of courses table', async () => {
     const res = await request(app).get('/courses/1');
+    console.log(res.body, 'COURSES CONSOLE');
     expect(res.body).toEqual({
       id: '1',
       name: 'Maple Hill',
