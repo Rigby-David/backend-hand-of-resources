@@ -28,6 +28,19 @@ describe('backend-express-template routes', () => {
       genre: 'Action',
     });
   });
+  it('#POST /movies should add a new movies object', async () => {
+    const newMovie = {
+      title: 'From Near',
+      director: 'Jason Steinberg',
+      released: 2022,
+      genre: 'Drama',
+    };
+    const res = await request(app).post('/movies').send(newMovie);
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      ...newMovie
+    });
+  });
   afterAll(() => {
     pool.end();
   });

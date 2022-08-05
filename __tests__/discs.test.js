@@ -28,7 +28,7 @@ describe('backend-express-template routes', () => {
       glide: 5,
     });
   });
-  it('#POST /discs should add a new donut object', async () => {
+  it('#POST /discs should add a new discs object', async () => {
     const newDisc = {
       name: 'Panther',
       type: 'Mid',
