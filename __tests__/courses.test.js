@@ -18,6 +18,15 @@ describe('backend-express-template routes', () => {
       rating: expect.any(Number),
     });
   });
+  it('#GET /courses/:id should return first row of courses table', async () => {
+    const res = await request(app).get('/courses/1');
+    expect(res.body).toEqual({
+      id: '1',
+      name: 'Maple Hill',
+      location: 'Massachusetts',
+      rating: 1,
+    });
+  });
   afterAll(() => {
     pool.end();
   });
