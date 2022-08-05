@@ -28,6 +28,18 @@ describe('backend-express-template routes', () => {
       dob: 1990
     });
   });
+  it('#POST /pros should add a new pro', async () => {
+    const newPro = {
+      name: 'Midnight',
+      pob: 'Uptown',
+      dob: 2000,
+    };
+    const res = await request(app).post('/pros').send(newPro);
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      ...newPro
+    });
+  });
   afterAll(() => {
     pool.end();
   });
