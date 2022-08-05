@@ -3,6 +3,7 @@
 
 DROP TABLE IF EXISTS discs;
 DROP TABLE IF EXISTS pros;
+DROP TABLE IF EXISTS courses;
 
 CREATE TABLE discs (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -48,3 +49,22 @@ VALUES
     ('James Conrad', 'Virginia', 1990),
     ('Jeremy Koling', 'North Carolina', 1985);
 
+CREATE TABLE courses (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR,
+    location VARCHAR,
+    rating INT
+);
+
+INSERT INTO courses (
+    name,
+    location,
+    rating
+)
+
+VALUES
+    ('Maple Hill', 'Massachusetts', 1),
+    ('Krokhol', 'Norway', 2),
+    ('Hillcrest', 'Canada', 3),
+    ('Brewser Ridge', 'Vermont', 6),
+    ('McIver', 'Estacada', 24);
