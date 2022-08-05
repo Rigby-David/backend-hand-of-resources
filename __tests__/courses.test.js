@@ -48,4 +48,12 @@ describe('backend-express-template routes', () => {
   afterAll(() => {
     pool.end();
   });
+  it('#DELETE /courses/:id should delete a course', async () => {
+    const resp = await request(app).get('/courses');
+    expect(resp.body.length).toBe(5);
+    const res = await request(app).delete('/courses/1');
+    expect(res.status).toBe(200);
+    const response = await request(app).get('/courses');
+    expect(response.body.length).toBe(4);
+  });
 });
