@@ -27,6 +27,18 @@ describe('backend-express-template routes', () => {
       rating: 1,
     });
   });
+  it('#POST /courses should add a new course object', async () => {
+    const newCourse = {
+      name: 'Grass Hill',
+      location: 'Swampy',
+      rating: 8,
+    };
+    const res = await request(app).post('/courses').send(newCourse);
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      ...newCourse
+    });
+  });
   afterAll(() => {
     pool.end();
   });
