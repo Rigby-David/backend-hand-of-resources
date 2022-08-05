@@ -18,6 +18,16 @@ describe('backend-express-template routes', () => {
       released: expect.any(Number),
     });
   });
+  it('#GET /movies/:id should return a specific movie', async () => {
+    const res = await request(app).get('/movies/1');
+    expect(res.body).toEqual({
+      id: '1',
+      title: 'Bullet Train',
+      director: 'David Leitch',
+      released: 2022,
+      genre: 'Action',
+    });
+  });
   afterAll(() => {
     pool.end();
   });
