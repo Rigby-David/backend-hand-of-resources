@@ -39,6 +39,12 @@ describe('backend-express-template routes', () => {
       ...newCourse
     });
   });
+  it('#PUT /courses/:id should update a course/s info', async () => {
+    const res = await request(app).put('/courses/1').send({
+      name: 'Rebillet',
+    });
+    expect(res.body.name).toBe('Rebillet');
+  });
   afterAll(() => {
     pool.end();
   });
