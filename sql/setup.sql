@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS discs;
 DROP TABLE IF EXISTS pros;
 DROP TABLE IF EXISTS courses;
 DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS artists;
 
 CREATE TABLE discs (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -90,3 +91,23 @@ VALUES
     ('The Lost City', 'Aaron Nee & Adam Nee', 2022, 'Comedy, Action'),
     ('Lightyear', 'Angus McLane', 2022, 'Comedy, Action'),
     ('Everything Everywhere All At Once', 'Daniel Kwan, Daniel Scheinert', 2022, 'Comedy, Action');
+
+CREATE TABLE artists (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    band VARCHAR,
+    guitar VARCHAR,
+    drums VARCHAR,
+    bass VARCHAR
+);
+
+INSERT INTO artists (
+    band,
+    guitar,
+    drums,
+    bass
+)
+
+VALUES
+    ('Rush', 'Alex Lifeson', 'Neil Peart', 'Geddy Lee'),
+    ('Black Sabbath', 'Tony Iommi', 'Bill Ward', 'Geezer Butler'),
+    ('Creedence Clearwater Revival', 'John Fogerty', 'Doug Clifford', 'Stu Cook');
