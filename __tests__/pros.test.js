@@ -46,6 +46,14 @@ describe('backend-express-template routes', () => {
     });
     expect(res.body.name).toEqual('Mark');
   });
+  it('#DELETE /pros/:id should delete a pro from the table', async () => {
+    const res = await request(app).get('/pros');
+    expect(res.body.length).toBe(5);
+    const resp = await request(app).delete('/pros/1');
+    expect(resp.status).toBe(200);
+    const response = await request(app).get('/pros');
+    expect(response.body.length).toBe(4);
+  });
   afterAll(() => {
     pool.end();
   });
