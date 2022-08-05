@@ -40,6 +40,12 @@ describe('backend-express-template routes', () => {
       ...newPro
     });
   });
+  it('#PUT /pros/:id should update a pros info', async () => {
+    const res = await request(app).put('/pros/1').send({
+      name: 'Mark',
+    });
+    expect(res.body.name).toEqual('Mark');
+  });
   afterAll(() => {
     pool.end();
   });
