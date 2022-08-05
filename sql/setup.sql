@@ -4,6 +4,7 @@
 DROP TABLE IF EXISTS discs;
 DROP TABLE IF EXISTS pros;
 DROP TABLE IF EXISTS courses;
+DROP TABLE IF EXISTS movies;
 
 CREATE TABLE discs (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -68,3 +69,24 @@ VALUES
     ('Hillcrest', 'Canada', 3),
     ('Brewser Ridge', 'Vermont', 6),
     ('McIver', 'Estacada', 24);
+
+CREATE TABLE movies (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    title VARCHAR,
+    director VARCHAR,
+    genre VARCHAR,
+    released INT
+);
+
+INSERT INTO movies (
+    title,
+    director,
+    released,
+    genre
+)
+
+VALUES
+    ('Bullet Train', 'David Leitch', 2022, 'Action'),
+    ('The Lost City', 'Aaron Nee & Adam Nee', 2022, 'Comedy, Action'),
+    ('Lightyear', 'Angus McLane', 2022, 'Comedy, Action'),
+    ('Everything Everywhere All At Once', 'Daniel Kwan, Daniel Scheinert', 2022, 'Comedy, Action');
