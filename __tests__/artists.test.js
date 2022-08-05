@@ -41,6 +41,12 @@ describe('backend-express-template routes', () => {
       ...newArtist
     });
   });
+  it('#PUT /artists/:id should update a artists info', async () => {
+    const res = await request(app).put('/artists/1').send({
+      band: 'Organic Sunrise',
+    });
+    expect(res.body.band).toBe('Organic Sunrise');
+  });
   afterAll(() => {
     pool.end();
   });
