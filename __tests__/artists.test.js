@@ -28,6 +28,19 @@ describe('backend-express-template routes', () => {
       bass: 'Geddy Lee',
     });
   });
+  it('#POST /artists should add a new artists object', async () => {
+    const newArtist = {
+      band: 'Yodel',
+      guitar: 'John Smort',
+      drums: 'Angela Jello',
+      bass: 'Snack Pack',
+    };
+    const res = await request(app).post('/artists').send(newArtist);
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      ...newArtist
+    });
+  });
   afterAll(() => {
     pool.end();
   });
