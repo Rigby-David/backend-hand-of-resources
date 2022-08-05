@@ -41,6 +41,12 @@ describe('backend-express-template routes', () => {
       ...newMovie
     });
   });
+  it('#PUT /movies/:id should update a movies info', async () => {
+    const res = await request(app).put('/movies/1').send({
+      title: 'Bullet Plane, Train, and Automobiles',
+    });
+    expect(res.body.title).toBe('Bullet Plane, Train, and Automobiles');
+  });
   afterAll(() => {
     pool.end();
   });
