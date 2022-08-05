@@ -47,6 +47,14 @@ describe('backend-express-template routes', () => {
     });
     expect(res.body.title).toBe('Bullet Plane, Train, and Automobiles');
   });
+  it('#DELETE /movies/:id should delete a movie', async () => {
+    const resp = await request(app).get('/movies');
+    expect(resp.body.length).toBe(4);
+    const res = await request(app).delete('/movies/1');
+    expect(res.status).toBe(200);
+    const response = await request(app).get('/movies');
+    expect(response.body.length).toBe(3);
+  });
   afterAll(() => {
     pool.end();
   });
